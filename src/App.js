@@ -1,31 +1,18 @@
 import React,  { Component } from 'react';
 import { connect } from 'react-redux'
-import { incrementar,decrementar, setear } from './reducers'
+//import { incrementar,decrementar, setear } from './reducers'
 import logo from './logo.svg';
 import './App.css';
+import UserForm from './components/UserForms'
 class App extends Component {
-
-  handleSetear = e => {
-    const { setear } = this.props
-    const { valor } = this.state
-    setear(Number(valor))
-  }
-
-  handleChange = e => {
-    const { name, value } = e.target
-    this.setState({ [name]: value })
+  handleSubmit = payload => {
+    console.log(payload)
   }
 
  render(){
-  const { incrementar,decrementar, valor } = this.props
-  console.log(this.state)
   return (
     <div className="App">
-        <p>{valor}</p>
-        <button onClick={incrementar}>Incrementar</button>
-        <button onClick={decrementar}>Decrementar</button>
-        <input name='valor' onChange={this.handleChange}/>
-        <button onClick={this.handleSetear}>Setear</button>        
+    <UserForm onSubmit={this.handleSubmit}/>
     </div>
   );
 }
@@ -34,15 +21,15 @@ class App extends Component {
  * Recibe el estado completo , adaptar el estado a entregar lo que necesita para funcionar
 */
 const mapStateToProps = state => {
-  console.log({state})
+  
   return {
     valor: state.contador,
   }
 }
 const mapDispatchToProps = dispatch =>({
-  incrementar: () => dispatch( incrementar()),
-  decrementar: () => dispatch( decrementar()),
-  setear: payload => dispatch( setear(payload))
+  //incrementar: () => dispatch( incrementar()),
+  //decrementar: () => dispatch( decrementar()),
+  //setear: payload => dispatch( setear(payload))
 })
 /**
  *  toma acciones y transforma en acciones para despachar
