@@ -12,10 +12,10 @@ const SETEAR        = 'CONTADOR/SETEAR'
  * retorna un obj con la propiedad de type
  * acciones a despachar convencion de nombre minusculas
  */
-const incrementar = () => ({
+export const incrementar = () => ({
     type: INCREMENTAR,
 })
-const decrementar = () => ({
+export const decrementar = () => ({
     type: DECREMENTAR,
 })
 /**
@@ -23,11 +23,12 @@ const decrementar = () => ({
  * si es que se desea adjuntar datos en las aciones a despachar se agrega payload
  */
 //para setear el numero que queramos,
-const setear = (payload) => ({
+export const setear = (payload) => ({
     type: SETEAR,
     payload,
 })
 const initialState = 0
+
 export default function (state = initialState, action) {
     console.log(action)
     switch (action.type) {
