@@ -36,15 +36,13 @@ class App extends Component {
 const mapStateToProps = state => {
   console.log({state})
   return {
-    valor: state,
+    valor: state.contador,
   }
 }
 const mapDispatchToProps = dispatch =>({
   incrementar: () => dispatch( incrementar()),
   decrementar: () => dispatch( decrementar()),
   setear: payload => dispatch( setear(payload))
-
-
 })
 /**
  *  toma acciones y transforma en acciones para despachar
